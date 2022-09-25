@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_page2"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/margin_padding_20dp"
+    android:paddingTop="@dimen/margin_padding_20dp"
+    tools:context=".Page2Activity">
+
+    <ImageView
+        android:id="@+id/ic_back"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:padding="@dimen/margin_padding_10dp"
+        android:background="@drawable/bg_search_view"
+        android:src="@drawable/ic_back_left" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Afsona"
+        android:textStyle="bold"
+        android:textSize="45sp"
+        android:layout_marginStart="@dimen/margin_padding_10dp"
+
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#8f9b97"
+        />
+</androidx.appcompat.widget.LinearLayoutCompat>
