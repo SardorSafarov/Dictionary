@@ -14,22 +14,26 @@
         android:id="@+id/ic_back"
         android:layout_width="60dp"
         android:layout_height="40dp"
-        android:padding="@dimen/margin_padding_10dp"
         android:background="@drawable/bg_search_view"
+        android:padding="@dimen/margin_padding_10dp"
         android:src="@drawable/ic_back_left" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Afsona"
-        android:textStyle="bold"
-        android:textSize="45sp"
         android:layout_marginStart="@dimen/margin_padding_10dp"
-
+        android:text="Afsona"
+        android:textSize="45sp"
         />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:background="#8f9b97"
-        />
+        android:background="#8f9b97" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_padding_10dp"
+        tools:listitem="@layout/item_page1_rec" />
 </androidx.appcompat.widget.LinearLayoutCompat>
