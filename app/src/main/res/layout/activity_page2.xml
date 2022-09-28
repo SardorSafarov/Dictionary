@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_page2"
+    android:background="@drawable/bg_main33"
     android:orientation="vertical"
     android:paddingHorizontal="@dimen/margin_padding_20dp"
     android:paddingTop="@dimen/margin_padding_20dp"
@@ -23,6 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_padding_10dp"
         android:text="Afsona"
+        android:textColor="#37555c"
+        android:textStyle="bold"
         android:textSize="45sp"
         />
 
@@ -31,9 +33,5 @@
         android:layout_height="3dp"
         android:background="#8f9b97" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_padding_10dp"
-        tools:listitem="@layout/item_page1_rec" />
+
 </androidx.appcompat.widget.LinearLayoutCompat>
