@@ -34,6 +34,7 @@
         android:background="#8f9b97"
         />
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recView"
         android:layout_marginTop="@dimen/margin_padding_10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

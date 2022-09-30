@@ -70,9 +70,10 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/margin_padding_20dp"
+            android:overScrollMode="never"
             android:paddingHorizontal="@dimen/margin_padding_15dp"
             tools:listitem="@layout/item_main_rec" />
     </androidx.appcompat.widget.LinearLayoutCompat>
