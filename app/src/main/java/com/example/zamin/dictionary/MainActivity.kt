@@ -4,9 +4,12 @@ import android.content.Intent
 import android.content.res.AssetManager
 import android.os.Build
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.zamin.dictionary.adapters.AdapterMain
 import com.example.zamin.dictionary.databinding.ActivityMainBinding
@@ -36,8 +39,30 @@ class MainActivity : AppCompatActivity(), AdapterMain.ItemClick {
         binding.txt.setOnClickListener {
             startActivity(Intent(this, Page1Activity::class.java))
         }
-        adapter = AdapterMain(this)
+
         readExel()
+        searchEdt()
+    }
+
+    private fun searchEdt() {
+        binding.edtSearchview.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                var list1:MutableList<String> = mutableListOf()
+                    list.forEach {
+                        if (it.uppercase().contains(p0.toString().uppercase()))
+                            list1.add(it)
+                    }
+                adapter.setList(list1)
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+        } )
     }
 
     fun readExel() {
@@ -58,7 +83,7 @@ class MainActivity : AppCompatActivity(), AdapterMain.ItemClick {
         } catch (e: Exception) {
             D("xatolik  ${e.message}\n$e")
         }
-
+        adapter = AdapterMain(this)
         binding.apply {
             recView.adapter = adapter
             recView.layoutManager = LinearLayoutManager(this@MainActivity)
