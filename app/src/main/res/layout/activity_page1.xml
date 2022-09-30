@@ -1,43 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_main22"
     android:orientation="vertical"
-    android:paddingHorizontal="@dimen/margin_padding_20dp"
-    android:paddingTop="@dimen/margin_padding_20dp"
     tools:context=".Page1Activity">
 
-    <ImageView
-        android:id="@+id/ic_back"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:padding="@dimen/margin_padding_10dp"
-        android:background="@drawable/bg_search_view"
-        android:src="@drawable/ic_back_left" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Afsona"
-        android:textStyle="bold"
-        android:textColor="#37555c"
-        android:textSize="45sp"
-        android:layout_marginEnd="@dimen/margin_padding_10dp"
-        android:layout_gravity="end"
-        />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="#8f9b97"
-        />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recView"
-        android:layout_marginTop="@dimen/margin_padding_10dp"
-        android:layout_width="match_parent"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_page1_rec"
-        />
-</androidx.appcompat.widget.LinearLayoutCompat>
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.9">
+
+        <ImageView
+            android:id="@+id/ic_back"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/margin_padding_60dp"
+            android:background="@drawable/bg_search_view"
+            android:padding="@dimen/margin_padding_10dp"
+            android:src="@drawable/ic_back_left" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/margin_padding_10dp"
+            android:text="Afsona"
+            android:textColor="#37555c"
+            android:textSize="45sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#8f9b97" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_padding_10dp"
+            android:overScrollMode="never"
+            tools:listitem="@layout/item_page1_rec" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

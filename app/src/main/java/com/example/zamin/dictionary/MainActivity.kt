@@ -30,11 +30,11 @@ class MainActivity : AppCompatActivity(), AdapterMain.ItemClick {
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-            binding = ActivityMainBinding.inflate(layoutInflater)
-            setContentView(binding.root)
-            binding.txt.setOnClickListener {
-                startActivity(Intent(this, Page1Activity::class.java))
-            }
+        }
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.txt.setOnClickListener {
+            startActivity(Intent(this, Page1Activity::class.java))
         }
         adapter = AdapterMain(this)
         readExel()

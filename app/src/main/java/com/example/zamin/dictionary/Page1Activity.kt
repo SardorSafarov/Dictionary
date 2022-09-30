@@ -2,8 +2,10 @@ package com.example.zamin.dictionary
 
 import android.content.Intent
 import android.content.res.AssetManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.zamin.dictionary.adapters.AdapterPage1
 import com.example.zamin.dictionary.databinding.ActivityPage1Binding
@@ -19,11 +21,17 @@ class Page1Activity : AppCompatActivity(), AdapterPage1.ItemClick {
     var list: MutableList<String> = mutableListOf()
     var list1: MutableList<String> = mutableListOf()
     lateinit var adapter:AdapterPage1
+    lateinit var item:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
         binding = ActivityPage1Binding.inflate(layoutInflater)
         setContentView(binding.root)
-        val item=intent.getStringExtra("item").toString()
+        item=intent.getStringExtra("item").toString()
+        binding.title.text = item
         binding.icBack.setOnClickListener {
             finish()
         }
@@ -62,7 +70,8 @@ class Page1Activity : AppCompatActivity(), AdapterPage1.ItemClick {
 
     override fun clickItem(item: String) {
         val intent = Intent(this,Page2Activity::class.java)
-        intent.putExtra("item",intent.getStringExtra("item"))
+        intent.putExtra("title",this.item)
+        intent.putExtra("subtitile",item)
         list.forEach {
             if (it.contains(item)){
                 intent.putExtra("body",it)

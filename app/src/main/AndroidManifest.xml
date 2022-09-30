@@ -25,7 +25,8 @@
         <activity
             android:name=".Page2Activity"
             android:exported="false"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Dictionary.NoActionBarAndStatusBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -33,7 +34,8 @@
         <activity
             android:name=".Page1Activity"
             android:exported="false"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Dictionary.NoActionBarAndStatusBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
