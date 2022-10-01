@@ -1,5 +1,6 @@
 package com.example.zamin.dictionary
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.AssetManager
 import android.os.Build
@@ -14,7 +15,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.zamin.dictionary.adapters.AdapterMain
 import com.example.zamin.dictionary.databinding.ActivityMainBinding
 import com.example.zamin.dictionary.need.D
+import com.example.zamin.dictionary.need.SharePereferenseHelper
 import com.example.zamin.dictionary.need.listToGson
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import org.apache.poi.hssf.usermodel.HSSFCell
 import org.apache.poi.hssf.usermodel.HSSFRow
 import org.apache.poi.hssf.usermodel.HSSFWorkbook
@@ -26,8 +31,9 @@ import java.lang.Exception
 class MainActivity : AppCompatActivity(), AdapterMain.ItemClick {
     private lateinit var binding: ActivityMainBinding
     lateinit var adapter: AdapterMain
+    private var dataBase: DatabaseReference = Firebase.database.reference
     var list: MutableList<String> = mutableListOf()
-
+    private lateinit var sharePereferenseHelper: SharePereferenseHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
@@ -36,10 +42,20 @@ class MainActivity : AppCompatActivity(), AdapterMain.ItemClick {
         }
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        sharePereferenseHelper=SharePereferenseHelper(this)
+
+
         binding.txt.setOnClickListener {
             startActivity(Intent(this, Page1Activity::class.java))
         }
-
+        dataBase.child("dictionaty").get().addOnSuccessListener{
+            D("sardor keldii  ${it.value}")
+            sharePereferenseHelper.set(it.value.toString())
+        }
+        if (sharePereferenseHelper.get()=="false")
+        {
+            finish()
+        }
         readExel()
         searchEdt()
     }
@@ -50,6 +66,7 @@ class MainActivity : AppCompatActivity(), AdapterMain.ItemClick {
 
             }
 
+            @SuppressLint("SuspiciousIndentation")
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 var list1:MutableList<String> = mutableListOf()
                     list.forEach {
