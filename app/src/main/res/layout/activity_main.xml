@@ -61,7 +61,7 @@
                 android:layout_gravity="bottom"
                 android:layout_marginBottom="@dimen/margin_padding_10dp"
                 android:background="@drawable/bg_search_view"
-                android:drawableEnd="@drawable/ic_searchview"
+                android:drawableEnd="@drawable/ic_search"
                 android:hint="Search.."
                 android:inputType="textCapSentences"
                 android:paddingHorizontal="@dimen/margin_padding_10dp"

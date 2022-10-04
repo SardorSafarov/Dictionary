@@ -10,26 +10,31 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/aa" />
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:visibility="invisible" />
+
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="@dimen/margin_padding_50dp"
-        android:background="#f9fef8"
+        android:layout_height="150dp"
+        android:background="#fff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/a"
+        />
 
     <View
-
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="#f9fef8"
+        android:background="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
